@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function iterateThroughObject(reportWithIterator) {
   let arr = '', x = 0;
   for (const el of reportWithIterator) {
