@@ -6,7 +6,7 @@ function updateStudentGradeByCity(studs, city, newGrades) {
     if (filterg.length > 0) {
       return {
         ...st,
-	gr: filterg[0].grade,
+	grade: filterg[0].grade,
       };
     }
     return {
