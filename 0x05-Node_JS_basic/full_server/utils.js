@@ -8,8 +8,8 @@ module.exports = function readDatabase(filePath) {
       if (err) {
         reject(err);
       } else {
-        const lines = data.toString().split('\n');
-        const noH = lines.slice(1);
+        const lis = data.toString().split('\n');
+        const noH = lis.slice(1);
 
         for (let i = 0; i < noH.length; i += 1) {
           if (noH[i]) {
