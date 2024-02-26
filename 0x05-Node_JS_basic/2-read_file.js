@@ -18,7 +18,6 @@ function countStudents(fileName) {
 
         if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
           students[fld[3]].push(fld[0]);
-
         } else {
           students[fld[3]] = [fld[0]];
         }
@@ -28,7 +27,6 @@ function countStudents(fileName) {
         } else {
           flds[fld[3]] = 1;
         }
-
       }
     }
 
