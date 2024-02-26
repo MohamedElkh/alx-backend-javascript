@@ -5,18 +5,13 @@ function countStudents(fileName) {
   const flds = {};
 
   let le = 0;
-
   return new Promise((resolve, reject) => {
     readFile(fileName, (error, data) => {
-
       if (error) {
         reject(Error('Cannot load the database'));
-
       } else {
         const lines = data.toString().split('\n');
-
         for (let i = 0; i < lines.length; i += 1) {
-
           if (lines[i]) {
             le += 1;
 
@@ -24,18 +19,14 @@ function countStudents(fileName) {
 
             if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
               students[fld[3]].push(fld[0]);
-
             } else {
               students[fld[3]] = [fld[0]];
             }
-
             if (Object.prototype.hasOwnProperty.call(flds, fld[3])) {
-
               flds[fld[3]] += 1;
             } else {
               flds[fld[3]] = 1;
             }
-
           }
         }
 
