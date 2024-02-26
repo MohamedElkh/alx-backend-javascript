@@ -1,5 +1,6 @@
 const http = require('http');
 const { readFile } = require('fs');
+
 const hostname = '127.0.0.1';
 const port = 1245;
 
@@ -24,7 +25,6 @@ function countStudents(fileName) {
 
             if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
               students[fld[3]].push(fld[0]);
-
             } else {
               students[fld[3]] = [fld[0]];
             }
@@ -41,7 +41,6 @@ function countStudents(fileName) {
         output += `Number of students: ${lx}\n`;
 
         for (const [ky, vl] of Object.entries(flds)) {
-
           if (ky !== 'field') {
             output += `Number of students in ${ky}: ${vl}. `;
             output += `List: ${students[ky].join(', ')}\n`;
@@ -52,7 +51,6 @@ function countStudents(fileName) {
     });
   });
 }
-
 
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
