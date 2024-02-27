@@ -10,12 +10,12 @@ function countStudents(fileName) {
       if (error) {
         reject(Error('Cannot load the database'));
       } else {
-        const lines = data.toString().split('\n');
-        for (let i = 0; i < lines.length; i += 1) {
-          if (lines[i]) {
+        const lis = data.toString().split('\n');
+        for (let i = 0; i < lis.length; i += 1) {
+          if (lis[i]) {
             le += 1;
 
-            const fld = lines[i].toString().split(',');
+            const fld = lis[i].toString().split(',');
 
             if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
               students[fld[3]].push(fld[0]);

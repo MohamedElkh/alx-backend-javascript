@@ -7,14 +7,14 @@ function countStudents(fileName) {
   let le = 0;
 
   try {
-    const fileContents = fs.readFileSync(fileName, 'utf-8');
-    const lines = fileContents.toString().split('\n');
+    const fileConts = fs.readFileSync(fileName, 'utf-8');
+    const lis = fileConts.toString().split('\n');
 
-    for (let i = 0; i < lines.length; i += 1) {
-      if (lines[i]) {
+    for (let i = 0; i < lis.length; i += 1) {
+      if (lis[i]) {
         le += 1;
 
-        const fld = lines[i].toString().split(',');
+        const fld = lis[i].toString().split(',');
 
         if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
           students[fld[3]].push(fld[0]);
