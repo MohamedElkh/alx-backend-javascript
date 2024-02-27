@@ -15,13 +15,13 @@ function countStudents(fileName) {
       if (err) {
         reject(err);
       } else {
-        let output = '';
-        const lines = data.toString().split('\n');
+        let outp = '';
+        const lis = data.toString().split('\n');
 
-        for (let i = 0; i < lines.length; i += 1) {
-          if (lines[i]) {
+        for (let i = 0; i < lis.length; i += 1) {
+          if (lis[i]) {
             le += 1;
-            const fld = lines[i].toString().split(',');
+            const fld = lis[i].toString().split(',');
 
             if (Object.prototype.hasOwnProperty.call(students, fld[3])) {
               students[fld[3]].push(fld[0]);
@@ -37,15 +37,15 @@ function countStudents(fileName) {
           }
         }
         const lx = le - 1;
-        output += `Number of students: ${lx}\n`;
+        outp += `Number of students: ${lx}\n`;
 
         for (const [ky, vl] of Object.entries(flds)) {
           if (ky !== 'field') {
-            output += `Number of students in ${ky}: ${vl}. `;
-            output += `List: ${students[ky].join(', ')}\n`;
+            outp += `Number of students in ${ky}: ${vl}. `;
+            outp += `List: ${students[ky].join(', ')}\n`;
           }
         }
-        resolve(output);
+        resolve(outp);
       }
     });
   });
@@ -56,8 +56,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  countStudents(process.argv[2].toString()).then((output) => {
-    res.send(['This is the list of our students', output].join('\n'));
+  countStudents(process.argv[2].toString()).then((outp) => {
+    res.send(['This is the list of our students', outp].join('\n'));
   }).catch(() => {
     res.send('This is the list of our students\nCannot load the database');
   });
