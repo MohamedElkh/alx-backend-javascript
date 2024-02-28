@@ -1,6 +1,6 @@
 const request = require("request");
-const {describe, it} = require("mocha");
 const expect = require("chai").expect;
+const {describe, it} = require("mocha");
 
 describe("Index page", function() {
     const options = {
